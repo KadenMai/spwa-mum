@@ -9,19 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var PRODUCTS = [
-    { id: 1, name: 'Iphone' },
-    { id: 2, name: 'Ipad' },
-    { id: 3, name: 'Macbook' },
-    { id: 4, name: 'iPod' }
-];
+var product_service_1 = require("./product/product.service");
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(productService) {
+        this.productService = productService;
         this.title = 'List of Products';
-        this.products = PRODUCTS;
     }
     AppComponent.prototype.onSelect = function (product) {
         this.selectedProduct = product;
+    };
+    AppComponent.prototype.getProducts = function () {
+        var _this = this;
+        //this.productService.getProductsSlowly().then(products => this.products = products);
+        this.productService.getProducts().then(function (products) { return _this.products = products; });
+        //this.products = this.productService.getProducts();
+    };
+    AppComponent.prototype.ngOnInit = function () {
+        this.getProducts();
     };
     return AppComponent;
 }());
@@ -29,9 +33,10 @@ AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
         styleUrls: ['app/style/productStyle.css'],
+        providers: [product_service_1.ProductService],
         template: "\n\n<h1>{{title}}</h1>\n\n<ul class = \"products\">\n  <li *ngFor=\"let product of products\"\n      (click)=\"onSelect(product)\"\n      [class.selected]=\"product === selectedProduct\"\n  >\n    <span class=\"badge\">{{product.id}}</span> {{product.name}}\n  </li>\n</ul>          \n<product-detail [product]=\"selectedProduct\"></product-detail>\n",
     }),
-    __metadata("design:paramtypes", [])
+    __metadata("design:paramtypes", [product_service_1.ProductService])
 ], AppComponent);
 exports.AppComponent = AppComponent;
 //# sourceMappingURL=app.component.js.map
