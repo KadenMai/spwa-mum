@@ -15,20 +15,27 @@ var Product = (function () {
     return Product;
 }());
 exports.Product = Product;
+var PRODUCTS = [
+    { id: 1, name: 'Iphone' },
+    { id: 2, name: 'Ipad' },
+    { id: 3, name: 'Macbook' },
+    { id: 4, name: 'iPod' }
+];
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'List of Products';
-        this.product = {
-            id: 1,
-            name: 'Iphone'
-        };
+        this.products = PRODUCTS;
     }
+    AppComponent.prototype.onSelect = function (product) {
+        this.selectedProduct = product;
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
-        template: "\n<h1>{{title}}</h1>\n<h2>{{product.name}} details!</h2>\n<div><label>id:</label>{{product.id}}</div>\n<div>\n  <label>name: </label>\n  <input [(ngModel)]=\"product.name\" placeholder=\"name\">\n</div>\n\n",
+        styleUrls: ['app/style/productStyle.css'],
+        template: "\n<h1>{{title}}</h1>\n\n<ul class = \"products\">\n  <li *ngFor=\"let product of products\" \n      (click)=\"onSelect(product)\"\n      [class.selected]=\"product === selectedProduct\"\n  >\n    <span class=\"badge\">{{product.id}}</span> {{product.name}}\n  </li>\n</ul>\n\n<div *ngIf=\"selectedProduct\">\n<h2>{{selectedProduct.name}} details!</h2>\n<div>\n  <label>id: </label>{{selectedProduct.id}}\n</div>\n<div>\n  <label>name: </label>\n  <input [(ngModel)]=\"selectedProduct.name\" placeholder=\"name\"/>\n</div>\n</div>\n",
     }),
     __metadata("design:paramtypes", [])
 ], AppComponent);
