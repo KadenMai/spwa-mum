@@ -1,9 +1,10 @@
 /* tslint:disable:no-unused-variable */
-import { AppComponent } from './app.component';
+//import { AppComponent } from './product/products.component';
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By }           from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import {AppComponent} from "./app.component";
 
 ////////  SPECS  /////////////
 describe('AppComponent', function () {

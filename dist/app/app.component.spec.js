@@ -1,8 +1,9 @@
-"use strict";
 /* tslint:disable:no-unused-variable */
-var app_component_1 = require("./app.component");
+//import { AppComponent } from './product/products.component';
+"use strict";
 var testing_1 = require("@angular/core/testing");
 var platform_browser_1 = require("@angular/platform-browser");
+var app_component_1 = require("./app.component");
 ////////  SPECS  /////////////
 describe('AppComponent', function () {
     var de;

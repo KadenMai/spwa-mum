@@ -12,18 +12,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by user on 12/9/2016.
  */
 var core_1 = require("@angular/core");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'List of Products';
+var product_service_1 = require("../product/product.service");
+var DashboardComponent = (function () {
+    function DashboardComponent(productService) {
+        this.productService = productService;
+        this.Products = [];
     }
-    return AppComponent;
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.productService.getProducts()
+            .then(function (products) { return _this.Products = products.slice(1, 3); });
+    };
+    return DashboardComponent;
 }());
-AppComponent = __decorate([
+DashboardComponent = __decorate([
     core_1.Component({
-        selector: 'my-app',
-        template: "<h1>{{title}}</h1>\n<nav>\n    <a routerLink=\"/products\">Products</a>\n    <a routerLink=\"/dashboard\">Dashboard</a>\n</nav>\n    <router-outlet></router-outlet>\n"
+        selector: 'my-dashboard',
+        templateUrl: "app/dashboard/dashboard.component.html"
     }),
-    __metadata("design:paramtypes", [])
-], AppComponent);
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+    __metadata("design:paramtypes", [product_service_1.ProductService])
+], DashboardComponent);
+exports.DashboardComponent = DashboardComponent;
+//# sourceMappingURL=dashboard.component.js.map
