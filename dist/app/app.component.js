@@ -9,12 +9,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var Product = (function () {
-    function Product() {
-    }
-    return Product;
-}());
-exports.Product = Product;
 var PRODUCTS = [
     { id: 1, name: 'Iphone' },
     { id: 2, name: 'Ipad' },
@@ -35,7 +29,7 @@ AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',
         styleUrls: ['app/style/productStyle.css'],
-        template: "\n<h1>{{title}}</h1>\n\n<ul class = \"products\">\n  <li *ngFor=\"let product of products\" \n      (click)=\"onSelect(product)\"\n      [class.selected]=\"product === selectedProduct\"\n  >\n    <span class=\"badge\">{{product.id}}</span> {{product.name}}\n  </li>\n</ul>\n\n<div *ngIf=\"selectedProduct\">\n<h2>{{selectedProduct.name}} details!</h2>\n<div>\n  <label>id: </label>{{selectedProduct.id}}\n</div>\n<div>\n  <label>name: </label>\n  <input [(ngModel)]=\"selectedProduct.name\" placeholder=\"name\"/>\n</div>\n</div>\n",
+        template: "\n\n<h1>{{title}}</h1>\n\n<ul class = \"products\">\n  <li *ngFor=\"let product of products\"\n      (click)=\"onSelect(product)\"\n      [class.selected]=\"product === selectedProduct\"\n  >\n    <span class=\"badge\">{{product.id}}</span> {{product.name}}\n  </li>\n</ul>          \n<product-detail [product]=\"selectedProduct\"></product-detail>\n",
     }),
     __metadata("design:paramtypes", [])
 ], AppComponent);
