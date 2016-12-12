@@ -21,7 +21,7 @@ var DashboardComponent = (function () {
     DashboardComponent.prototype.ngOnInit = function () {
         var _this = this;
         this.productService.getProducts()
-            .then(function (products) { return _this.Products = products.slice(1, 3); });
+            .then(function (products) { return _this.Products = products.slice(1, 5); });
     };
     return DashboardComponent;
 }());

@@ -17,6 +17,6 @@ export class DashboardComponent implements OnInit{
 
   ngOnInit(): void{
     this.productService.getProducts()
-      .then(products => this.Products = products.slice(1,3));
+      .then(products => this.Products = products.slice(1,5));
   }
 }

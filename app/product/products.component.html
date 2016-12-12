@@ -1,11 +1,22 @@
 
+<div class="addarea">
+  <label style="width: 100%">Product name:</label><br/>
+  <input #productName />
+  <button (click)="add(productName.value); productName.value=''">
+    Add
+  </button>
+</div>
+
 <h2>My Products </h2>
 <ul class = "products">
   <li *ngFor="let product of products"
       (click)="onSelect(product)"
       [class.selected]="product === selectedProduct"
   >
-    <span class="badge">{{product.id}}</span> {{product.name}}
+    <span class="badge">{{product.id}}</span>
+    <span>{{product.name}}</span>
+    <button class="delete"
+            (click)="delete(product); $event.stopPropagation()">x</button>
   </li>
 </ul>
 <!--<product-detail [product]="selectedProduct"></product-detail>-->
