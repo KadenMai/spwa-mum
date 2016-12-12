@@ -4,6 +4,8 @@ import {FormsModule}      from "@angular/forms";
 import {HttpModule}       from "@angular/http";
 
 import {AppRoutingModule} from "./app-routing.module";
+import './rxjs-extensions';
+
 
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import {InMemoryDataService} from "./product/in-memory-data.service";
@@ -13,6 +15,7 @@ import {ProductDetailComponent} from "./product/product-detail.component";
 import {ProductsComponent} from "./product/products.component";
 import {ProductService} from "./product/product.service";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {ProductSearchComponent} from "./search/product-search.component";
 
 
 
@@ -28,7 +31,8 @@ import {DashboardComponent} from "./dashboard/dashboard.component";
   declarations: [ AppComponent,
                   ProductsComponent,
                   ProductDetailComponent,
-                  DashboardComponent
+                  DashboardComponent,
+                  ProductSearchComponent
                 ],
   providers:    [ ProductService ],
   bootstrap:    [ AppComponent ]

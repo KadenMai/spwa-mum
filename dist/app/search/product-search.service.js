@@ -13,20 +13,20 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require("@angular/core");
 var http_1 = require("@angular/http");
-var HeroSearchService = (function () {
-    function HeroSearchService(http) {
+var ProductSearchService = (function () {
+    function ProductSearchService(http) {
         this.http = http;
     }
-    HeroSearchService.prototype.search = function (term) {
+    ProductSearchService.prototype.search = function (term) {
         return this.http
             .get("app/products/?name=" + term)
             .map(function (r) { return r.json().data; });
     };
-    return HeroSearchService;
+    return ProductSearchService;
 }());
-HeroSearchService = __decorate([
+ProductSearchService = __decorate([
     core_1.Injectable(),
     __metadata("design:paramtypes", [http_1.Http])
-], HeroSearchService);
-exports.HeroSearchService = HeroSearchService;
+], ProductSearchService);
+exports.ProductSearchService = ProductSearchService;
 //# sourceMappingURL=product-search.service.js.map
