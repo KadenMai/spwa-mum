@@ -8,27 +8,14 @@ import {ProductsComponent} from "./product/products.component";
 import {ProductService} from "./product/product.service";
 import {RouterModule} from "@angular/router";
 import {DashboardComponent} from "./dashboard/dashboard.component";
+import {AppRoutingModule} from "./app-routing.module";
 
 
 
 @NgModule({
   imports:      [ BrowserModule,
                   FormsModule,
-                  RouterModule.forRoot([
-                    {
-                      path: 'products',
-                      component: ProductsComponent
-                    },
-                    {
-                      path: 'dashboard',
-                      component: DashboardComponent
-                    },
-                    {
-                      path: '',
-                      redirectTo: '/dashboard',
-                      pathMatch: 'full'
-                    },
-                  ])
+                  AppRoutingModule
                 ],
   declarations: [ AppComponent,
                   ProductsComponent,

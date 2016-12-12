@@ -19,6 +19,10 @@ var ProductService = (function () {
     ProductService.prototype.getProducts = function () {
         return Promise.resolve(mock_products_1.PRODUCTS);
     };
+    ProductService.prototype.getProduct = function (id) {
+        return this.getProducts()
+            .then(function (products) { return products.find(function (product) { return product.id === id; }); });
+    };
     ProductService.prototype.getProductsSlowly = function () {
         var _this = this;
         return new Promise(function (resolve) { return setTimeout(resolve, 2000); })

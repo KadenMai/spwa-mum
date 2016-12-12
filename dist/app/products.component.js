@@ -31,7 +31,7 @@ var ProductsComponent = (function () {
 ProductsComponent = __decorate([
     core_1.Component({
         selector: 'my-products',
-        styleUrls: ['app/style/productStyle.css'],
+        styleUrls: ['../../app/product/productStyle.css'],
         template: "\n\n<ul class = \"products\">\n  <li *ngFor=\"let product of products\"\n      (click)=\"onSelect(product)\"\n      [class.selected]=\"product === selectedProduct\"\n  >\n    <span class=\"badge\">{{product.id}}</span> {{product.name}}\n  </li>\n</ul>          \n<product-detail [product]=\"selectedProduct\"></product-detail>\n",
     }),
     __metadata("design:paramtypes", [product_service_1.ProductService])

@@ -6,7 +6,9 @@ import {ProductService} from "../product/product.service";
 import {Product} from "../product/product";
 @Component({
   selector: 'my-dashboard',
+  styleUrls: ['app/dashboard/dashboard.component.css'],
   templateUrl: "app/dashboard/dashboard.component.html"
+
 })
 
 export class DashboardComponent implements OnInit{

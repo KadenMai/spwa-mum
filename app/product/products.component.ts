@@ -1,25 +1,17 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from "./product";
 import {ProductService} from "./product.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'my-products',
-  styleUrls: ['app/style/productStyle.css'],
-  template: `
-
-<ul class = "products">
-  <li *ngFor="let product of products"
-      (click)="onSelect(product)"
-      [class.selected]="product === selectedProduct"
-  >
-    <span class="badge">{{product.id}}</span> {{product.name}}
-  </li>
-</ul>          
-<product-detail [product]="selectedProduct"></product-detail>
-`,
+  styleUrls: ['app/product/products.component.css'],
+  templateUrl: 'app/product/products.component.html'
 })
 export class ProductsComponent  implements OnInit{
-  constructor(private productService: ProductService){}
+  constructor(private productService: ProductService,
+              private router: Router
+             ){}
 
   products: Product[];
   selectedProduct: Product;
@@ -36,5 +28,9 @@ export class ProductsComponent  implements OnInit{
 
   ngOnInit():void{
     this.getProducts();
+  }
+
+  gotoDetail(): void {
+    this.router.navigate(['/detail', this.selectedProduct.id]);
   }
 }
